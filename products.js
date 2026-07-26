@@ -34,7 +34,7 @@ const PRODUCTS = [
     price: 19,
     oldPrice: null,
     image: null,
-    demoVideo: null,
+    demoVideo: <iframe width="560" height="315" src="https://www.youtube.com/embed/iL7-Kc1i0-U?si=ooznYKLyt_XV-F4l" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>,
     description: "Align edges, centers, and distribute Fusion nodes with pixel precision.",
     fullDescription: "Align edges, centers, and distribute Fusion nodes with pixel precision. Comp-center in one click. Built for editors who are tired of nudging nodes by eye.",
     features: ["Spatial alignment", "Distribute tools", "License-key protected"],
