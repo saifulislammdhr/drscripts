@@ -40,7 +40,7 @@ const PRODUCTS = [
     price: 19,
     oldPrice: null,
     image: null,
-    demoVideo: null,
+    demoVideo: "https://youtu.be/iL7-Kc1i0-U?si=gr7FC0B_tYMoppyi",
     downloadUrl: null,
     description: "Align edges, centers, and distribute Fusion nodes with pixel precision.",
     fullDescription: "Align edges, centers, and distribute Fusion nodes with pixel precision. Comp-center in one click. Built for editors who are tired of nudging nodes by eye.",
