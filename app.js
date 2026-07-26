@@ -1,7 +1,7 @@
-// DR Scripts — site behavior
+// DR Scripts site behavior
 // Paddle.js handles the actual checkout overlay + payment. This file only
 // renders product cards from products.js and opens Paddle checkout on click.
-// No cart, no login, no local "account" — none of that can work honestly on
+// No cart, no login, no local "account": none of that can work honestly on
 // a static site, so it isn't faked here. Paddle emails the download link
 // after payment (configured in Paddle Dashboard > that product > Fulfillment).
 
@@ -20,7 +20,7 @@ function buyNow(priceId, productName) {
     return;
   }
   if (typeof Paddle === "undefined") {
-    alert("Checkout is still loading — try again in a moment.");
+    alert("Checkout is still loading, try again in a moment.");
     return;
   }
   Paddle.Checkout.open({
@@ -36,21 +36,15 @@ function productCard(p) {
   const featuresHtml = p.features.map(f => `<li>${f}</li>`).join("");
 
   const imageHtml = p.image
-    ? `<div class="product-image"><img src="${p.image}" alt="${p.name} screenshot" loading="lazy"></div>`
-    : "";
-
-  const demoHtml = p.demoVideo
-    ? `<a class="demo-link" href="${p.demoVideo}" target="_blank" rel="noopener">▶ Watch demo</a>`
-    : "";
+    ? `<img src="${p.image}" alt="${p.name} screenshot" loading="lazy">`
+    : `<div class="image-placeholder">${p.name}</div>`;
 
   return `
-  <article class="product" data-category="${p.tag}">
-    ${p.bestSeller ? '<div class="badge-top">BEST SELLER</div>' : ""}
-    ${imageHtml}
+  <article class="product">
+    <a class="product-image" href="product.html?id=${p.id}">${imageHtml}</a>
     <div class="product-body">
-      <div class="product-category">${p.tag} ${demoHtml}</div>
-      <h3 class="product-title">${p.name}</h3>
-      <p class="product-description">${p.description}</p>
+      <div class="product-category">${p.tag}</div>
+      <h3 class="product-title"><a href="product.html?id=${p.id}">${p.name}</a></h3>
       <ul class="product-features">${featuresHtml}</ul>
       <div class="product-bottom">
         <div class="price-block">${priceHtml}</div>
@@ -64,6 +58,7 @@ function productCard(p) {
 
 function renderProducts(filter = "All") {
   const grid = document.getElementById("product-grid");
+  if (!grid) return;
   const items = filter === "All" ? PRODUCTS : PRODUCTS.filter(p => p.tag === filter);
   grid.innerHTML = items.map(productCard).join("");
 }

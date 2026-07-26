@@ -1,19 +1,30 @@
-// DR Scripts — product catalog
-// To add a new product: copy an object below, fill in the fields.
+// DR Scripts product catalog
+// To add a new product: copy an object below, fill in the fields. That's it -
+// it will automatically appear on the homepage grid AND get its own detail
+// page at product.html?id=<id> - no other file needs to change.
 //
-// image      : path to a screenshot/thumbnail, e.g. "images/fusionalign.png"
-//              1) Add the image file to the /images folder in the repo (upload via GitHub "Add file")
-//              2) Point this field at it. Leave as null to show no image.
-//              Recommended size: 800x500px or similar 16:10 ratio, under 300KB (jpg/png/webp).
+// image        : path to a screenshot of the tool, shown on the card AND as
+//                the large hero image on the detail page.
+//                Recommended size: 1920x1080 (16:9) works well. Just compress
+//                the file first (aim under ~400KB) so the page loads fast -
+//                any online "compress png/jpg" tool works, or export as webp.
+//                How to add: upload the image file to the repo root (same
+//                place as index.html), then set this field to its filename,
+//                e.g. "fusionalign.png". Leave as null to show no image.
 //
-// demoVideo  : link to a YouTube (or Vimeo) video showing the tool in action.
-//              1) Upload the demo video to YouTube (can be "Unlisted" so it's not searchable, but the link still works)
-//              2) Paste the normal video URL here, e.g. "https://youtu.be/xxxxxxx"
-//              Do NOT upload video files directly into the GitHub repo — they're too large for this setup.
-//              Leave as null to hide the "Watch demo" link.
+// demoVideo    : link to a YouTube video showing the tool in action, embedded
+//                on the detail page. Upload the video to YouTube (can be
+//                "Unlisted" so it won't show in search, the link still works),
+//                then paste the normal video URL here, e.g. "https://youtu.be/xxxxxxx".
+//                Do not upload video files into the GitHub repo directly.
+//                Leave as null to hide the video section.
 //
-// paddlePriceId: get this from Paddle Dashboard > Catalog > Prices (looks like "pri_01xxxxx")
-// Leave paddlePriceId as null until the product is live in Paddle — the button will show "Coming Soon".
+// description     : short one-line summary, shown on the detail page under the title.
+// fullDescription : longer paragraph for the detail page. Leave null to just
+//                    reuse "description" if you don't have longer text yet.
+//
+// paddlePriceId: from Paddle Dashboard > Catalog > Prices (looks like "pri_01xxxxx").
+// Leave as null until the product is live in Paddle - the button will show "Coming Soon".
 
 const PRODUCTS = [
   {
@@ -22,10 +33,10 @@ const PRODUCTS = [
     tag: "SCRIPT",
     price: 19,
     oldPrice: null,
-    bestSeller: true,
     image: null,
     demoVideo: null,
-    description: "Align edges, centers, and distribute Fusion nodes with pixel precision. Comp-center in one click.",
+    description: "Align edges, centers, and distribute Fusion nodes with pixel precision.",
+    fullDescription: "Align edges, centers, and distribute Fusion nodes with pixel precision. Comp-center in one click. Built for editors who are tired of nudging nodes by eye.",
     features: ["Spatial alignment", "Distribute tools", "License-key protected"],
     paddlePriceId: null
   },
@@ -35,10 +46,10 @@ const PRODUCTS = [
     tag: "SCRIPT",
     price: 9,
     oldPrice: null,
-    bestSeller: false,
     image: null,
     demoVideo: null,
-    description: "Insert any Fusion tool into multiple selected nodes at once. No more repeating the same drag.",
+    description: "Insert any Fusion tool into multiple selected nodes at once.",
+    fullDescription: "Insert any Fusion tool into multiple selected nodes at once. No more repeating the same drag-and-connect for every single node in your comp.",
     features: ["Native tool picker", "Auto-connect on insert", "Windows & Mac"],
     paddlePriceId: null
   },
@@ -48,63 +59,50 @@ const PRODUCTS = [
     tag: "SCRIPT",
     price: 12,
     oldPrice: null,
-    bestSeller: false,
     image: null,
     demoVideo: null,
-    description: "Paste clipboard images straight into the Media Pool. Skip the save-then-import round trip.",
+    description: "Paste clipboard images straight into the Media Pool.",
+    fullDescription: "Paste clipboard images straight into the Media Pool. Skip the save-then-import round trip entirely - copy an image anywhere, paste it directly into Resolve.",
     features: ["Clipboard to Media Pool", "One shortcut", "Works with any image copy"],
     paddlePriceId: null
   },
   {
     id: "gridbuilder",
     name: "Grid Builder",
-    tag: "SCRIPT",
+    tag: "MACRO",
     price: 12,
     oldPrice: null,
-    bestSeller: false,
     image: null,
     demoVideo: null,
-    description: "Generate radial or rectangular grids in Fusion instantly — no manual duplicating and positioning.",
+    description: "Generate radial or rectangular grids in Fusion instantly.",
+    fullDescription: "Generate radial or rectangular grids in Fusion instantly, no manual duplicating and repositioning. Adjust rows, columns and spacing live.",
     features: ["Radial grid mode", "Rectangular grid mode", "Adjustable rows, columns & spacing"],
     paddlePriceId: null
   },
   {
-    id: "textbatch",
-    name: "Text+ Batch Property Editor",
+    id: "pairconnect",
+    name: "Pair Connect",
     tag: "SCRIPT",
-    price: 15,
+    price: 12,
     oldPrice: null,
-    bestSeller: false,
     image: null,
     demoVideo: null,
-    description: "Edit Text+ properties across every clip on the timeline in one pass, instead of node by node.",
-    features: ["Timeline-wide batch edit", "Font, size, color, position", "Undo-safe"],
+    description: "Connect matching inputs and outputs across selected nodes in one action.",
+    fullDescription: "Connect matching inputs and outputs across selected nodes in one action - update the exact wording once you share how Pair Connect works.",
+    features: ["Fast node connection", "Reduces manual wiring", "Windows & Mac"],
     paddlePriceId: null
   },
   {
-    id: "fusionflow",
-    name: "FusionFlow",
-    tag: "MACRO",
-    price: 15,
+    id: "fusionpivot",
+    name: "Fusion Pivot",
+    tag: "SCRIPT",
+    price: 12,
     oldPrice: null,
-    bestSeller: false,
     image: null,
     demoVideo: null,
-    description: "Easing presets for Fusion animation — the curve library Fusion doesn't ship with.",
-    features: ["Curated easing curves", "One-click apply", "Custom curve editor"],
-    paddlePriceId: null
-  },
-  {
-    id: "fusionpanel",
-    name: "FusionPanel",
-    tag: "PLUGIN",
-    price: 25,
-    oldPrice: null,
-    bestSeller: false,
-    image: null,
-    demoVideo: null,
-    description: "A floating multi-tab panel that keeps your most-used Fusion tools one click away.",
-    features: ["Multi-tab layout", "Customizable tool shortcuts", "Stays on top"],
+    description: "Reposition a tool's pivot point without fighting the transform controls.",
+    fullDescription: "Reposition a tool's pivot point without fighting the transform controls - update the exact wording once you share how Fusion Pivot works.",
+    features: ["Quick pivot repositioning", "Works inside Fusion page", "Windows & Mac"],
     paddlePriceId: null
   }
 ];
