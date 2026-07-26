@@ -1,63 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DR Scripts</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DR Scripts — DaVinci Resolve Fusion Tools</title>
+<meta name="description" content="Professional Fusion scripts, macros and plugins for DaVinci Resolve editors. Instant download, lifetime updates.">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
 </head>
 <body>
 
+<div class="announcement">Launch offer — new tools added regularly · Instant download after purchase</div>
+
 <header>
-  <div class="container">
-    <h1>DR Scripts</h1>
-    <nav>
+  <div class="container nav">
+    <a href="#" class="logo"><span class="dot-teal"></span><span class="dot-orange"></span>&nbsp;DR Scripts</a>
+    <nav class="menu">
       <a href="#products">Products</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+      <a href="#why">Why DR Scripts</a>
+      <a href="#faq">FAQ</a>
+      <a href="mailto:hello@drscripts.com">Contact</a>
     </nav>
+    <a href="#products" class="nav-cta">Browse Tools</a>
   </div>
 </header>
 
 <section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">FUSION · SCRIPTS · MACROS · PLUGINS</div>
+      <h1>Tools that speed up<br>your <span class="accent">Fusion</span> workflow.</h1>
+      <p>Scripts, macros and plugins built for DaVinci Resolve editors who are tired of doing the same node work by hand. Instant download after purchase — no account needed.</p>
+      <div class="hero-buttons">
+        <a href="#products" class="primary">Browse Products</a>
+        <a href="#why" class="secondary">Why DR Scripts</a>
+      </div>
+    </div>
+    <div class="node-graph">
+      <svg viewBox="0 0 400 380" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="90" x2="180" y2="140" stroke="#282c40" stroke-width="2"/>
+        <line x1="180" y1="140" x2="320" y2="90" stroke="#282c40" stroke-width="2"/>
+        <line x1="180" y1="140" x2="180" y2="240" stroke="#282c40" stroke-width="2"/>
+        <line x1="180" y1="240" x2="70" y2="300" stroke="#282c40" stroke-width="2"/>
+        <line x1="180" y1="240" x2="300" y2="300" stroke="#282c40" stroke-width="2"/>
+        <rect x="30" y="70" width="60" height="40" rx="8" fill="#1c2032" stroke="#282c40"/>
+        <rect x="150" y="120" width="60" height="40" rx="8" fill="#1c2032" stroke="#2dd9c7" class="pulse"/>
+        <rect x="290" y="70" width="60" height="40" rx="8" fill="#1c2032" stroke="#282c40"/>
+        <rect x="150" y="220" width="60" height="40" rx="8" fill="#1c2032" stroke="#282c40"/>
+        <rect x="40" y="280" width="60" height="40" rx="8" fill="#1c2032" stroke="#ff8a4c" class="pulse"/>
+        <rect x="270" y="280" width="60" height="40" rx="8" fill="#1c2032" stroke="#282c40"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="container stat-grid">
+    <div class="stat"><h2>6</h2><p>Tools shipped</p></div>
+    <div class="stat"><h2>100%</h2><p>Instant delivery</p></div>
+    <div class="stat"><h2>Win / Mac</h2><p>Cross-platform</p></div>
+    <div class="stat"><h2>Lifetime</h2><p>Updates included</p></div>
+  </div>
+</section>
+
+<section class="block" id="products">
   <div class="container">
-    <h2>Professional DaVinci Resolve Tools</h2>
-    <p>High-quality scripts, plugins, macros and workflow tools for faster editing.</p>
-    <a class="button" href="#products">View Products</a>
+    <div class="section-head">
+      <div class="eyebrow">CATALOG</div>
+      <h2 class="section-title">Products</h2>
+      <p class="section-sub">Every tool built and tested inside real Fusion projects — not generic templates.</p>
+    </div>
+    <div class="toolbar">
+      <div class="chips">
+        <button class="chip active" data-filter="All">All</button>
+        <button class="chip" data-filter="SCRIPT">Scripts</button>
+        <button class="chip" data-filter="MACRO">Macros</button>
+        <button class="chip" data-filter="PLUGIN">Plugins</button>
+      </div>
+    </div>
+    <div class="product-grid" id="product-grid"><!-- rendered by app.js --></div>
   </div>
 </section>
 
-<section id="products" class="container">
-  <h2>Products</h2>
-
-  <div class="card">
-    <h3>Coming Soon</h3>
-    <p>Our first DaVinci Resolve workflow tools will be available soon.</p>
+<section class="block" id="why" style="background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">WHY DR SCRIPTS</div>
+      <h2 class="section-title">Built by an editor, for editors</h2>
+    </div>
+    <div class="feature-grid">
+      <div class="feature">
+        <div class="num mono">01</div>
+        <h3>Instant download</h3>
+        <p>Pay once, get the file by email within seconds. No waiting, no manual delivery.</p>
+      </div>
+      <div class="feature">
+        <div class="num mono">02</div>
+        <h3>Lifetime updates</h3>
+        <p>Every purchase includes free updates as the tool improves.</p>
+      </div>
+      <div class="feature">
+        <div class="num mono">03</div>
+        <h3>Secure checkout</h3>
+        <p>Payments handled by Paddle — card, wallet and local payment methods supported worldwide.</p>
+      </div>
+      <div class="feature">
+        <div class="num mono">04</div>
+        <h3>Real support</h3>
+        <p>Questions or a bug report go straight to the person who built the tool.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<section id="about" class="container">
-  <h2>About</h2>
-  <p>
-    DR Scripts creates productivity tools for DaVinci Resolve editors.
-    Our goal is to simplify repetitive tasks and improve editing workflow.
-  </p>
-</section>
-
-<section id="contact" class="container">
-  <h2>Contact</h2>
-  <p>Email: your@email.com</p>
+<section class="block" id="faq">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">FAQ</div>
+      <h2 class="section-title">Frequently asked questions</h2>
+    </div>
+    <div class="faq-item">
+      <h3>How do I get the file after paying?</h3>
+      <p>Paddle sends a download link to your email immediately after payment completes. No account or login required.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do updates cost extra?</h3>
+      <p>No. Every product includes free updates for as long as it's actively maintained.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Which DaVinci Resolve versions are supported?</h3>
+      <p>Each product page lists its tested Resolve version range. Most tools work on Resolve 18 and above, Windows and Mac.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What if something doesn't work?</h3>
+      <p>Email support and you'll get a fix or a refund per the <a href="refund.html" style="color:var(--teal);text-decoration:underline;">refund policy</a>.</p>
+    </div>
+  </div>
 </section>
 
 <footer>
   <div class="container">
-    <p>© 2026 DR Scripts. All rights reserved.</p>
-
-    <a href="privacy.html">Privacy Policy</a> |
-    <a href="terms.html">Terms of Service</a> |
-    <a href="refund.html">Refund Policy</a>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo"><span class="dot-teal"></span><span class="dot-orange"></span>&nbsp;DR Scripts</a>
+        <p>Fusion scripts, macros and plugins for DaVinci Resolve editors.</p>
+      </div>
+      <div>
+        <h4>SITE</h4>
+        <a href="#products">Products</a>
+        <a href="#why">Why DR Scripts</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div>
+        <h4>LEGAL</h4>
+        <a href="terms.html">Terms of Service</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="refund.html">Refund Policy</a>
+      </div>
+    </div>
+    <div class="copy">© 2026 DR Scripts. All rights reserved.</div>
   </div>
 </footer>
 
+<script src="js/products.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>
