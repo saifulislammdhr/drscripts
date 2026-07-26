@@ -35,12 +35,23 @@ function renderProductDetail() {
     : `<div class="image-placeholder large">${product.name}</div>`;
 
   const embedUrl = youtubeEmbedUrl(product.demoVideo);
-  const videoHtml = embedUrl
-    ? `<div class="video-wrap" id="demo-video"><iframe src="${embedUrl}" title="${product.name} demo video" allowfullscreen loading="lazy"></iframe></div>`
-    : "";
-  const videoArrowHtml = embedUrl
-    ? `<a href="#demo-video" class="video-arrow" title="Watch demo video">→</a>`
-    : "";
+
+  let mediaHtml;
+  if (embedUrl) {
+    mediaHtml = `
+      <div class="media-carousel" id="media-carousel">
+        <div class="carousel-track">
+          <div class="carousel-slide">${imageHtml}</div>
+          <div class="carousel-slide">
+            <iframe src="${embedUrl}" title="${product.name} demo video" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+        <button class="carousel-arrow right" onclick="slideCarousel('video')" title="Watch demo video">→</button>
+        <button class="carousel-arrow left" onclick="slideCarousel('image')" title="Back to preview">←</button>
+      </div>`;
+  } else {
+    mediaHtml = `<div class="detail-image">${imageHtml}</div>`;
+  }
 
   const featuresHtml = product.features.map(f => `<li>${f}</li>`).join("");
   const priceHtml = product.price === 0
@@ -61,8 +72,7 @@ function renderProductDetail() {
     <a href="index.html" class="back-link">← All products</a>
     <div class="detail-grid">
       <div>
-        <div class="detail-image">${imageHtml}${videoArrowHtml}</div>
-        ${videoHtml}
+        ${mediaHtml}
       </div>
       <div>
         <div class="product-category">${product.tag}</div>
@@ -78,6 +88,16 @@ function renderProductDetail() {
       </div>
     </div>
   `;
+}
+
+function slideCarousel(target) {
+  const el = document.getElementById("media-carousel");
+  if (!el) return;
+  if (target === "video") {
+    el.classList.add("on-video");
+  } else {
+    el.classList.remove("on-video");
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
