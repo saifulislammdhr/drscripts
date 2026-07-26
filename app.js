@@ -28,10 +28,31 @@ function buyNow(priceId, productName) {
   });
 }
 
+function downloadFree(url, productName) {
+  if (!url) {
+    alert(`${productName} isn't ready to download yet.`);
+    return;
+  }
+  window.open(url, "_blank");
+}
+
+function buyButtonHtml(p) {
+  if (p.price === 0) {
+    return p.downloadUrl
+      ? `<button class="buy" onclick="downloadFree('${p.downloadUrl}', '${p.name.replace(/'/g, "\\'")}')">Download Free</button>`
+      : `<button class="buy" disabled>Coming Soon</button>`;
+  }
+  return `<button class="buy" onclick="buyNow('${p.paddlePriceId}', '${p.name.replace(/'/g, "\\'")}')">
+    ${p.paddlePriceId ? "Buy Now" : "Coming Soon"}
+  </button>`;
+}
+
 function productCard(p) {
-  const priceHtml = p.oldPrice
-    ? `<span class="old-price">$${p.oldPrice}</span><span class="price">$${p.price}</span>`
-    : `<span class="price">$${p.price}</span>`;
+  const priceHtml = p.price === 0
+    ? `<span class="price">Free</span>`
+    : p.oldPrice
+      ? `<span class="old-price">$${p.oldPrice}</span><span class="price">$${p.price}</span>`
+      : `<span class="price">$${p.price}</span>`;
 
   const featuresHtml = p.features.map(f => `<li>${f}</li>`).join("");
 
@@ -48,9 +69,7 @@ function productCard(p) {
       <ul class="product-features">${featuresHtml}</ul>
       <div class="product-bottom">
         <div class="price-block">${priceHtml}</div>
-        <button class="buy" onclick="buyNow('${p.paddlePriceId}', '${p.name.replace(/'/g, "\\'")}')">
-          ${p.paddlePriceId ? "Buy Now" : "Coming Soon"}
-        </button>
+        ${buyButtonHtml(p)}
       </div>
     </div>
   </article>`;

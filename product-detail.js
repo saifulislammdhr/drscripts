@@ -43,9 +43,19 @@ function renderProductDetail() {
     : "";
 
   const featuresHtml = product.features.map(f => `<li>${f}</li>`).join("");
-  const priceHtml = product.oldPrice
-    ? `<span class="old-price">$${product.oldPrice}</span><span class="price-badge">$${product.price}</span>`
-    : `<span class="price-badge">$${product.price}</span>`;
+  const priceHtml = product.price === 0
+    ? `<span class="price-badge">Free</span>`
+    : product.oldPrice
+      ? `<span class="old-price">$${product.oldPrice}</span><span class="price-badge">$${product.price}</span>`
+      : `<span class="price-badge">$${product.price}</span>`;
+
+  const detailButtonHtml = product.price === 0
+    ? (product.downloadUrl
+        ? `<button class="buy large" onclick="downloadFree('${product.downloadUrl}', '${product.name.replace(/'/g, "\\'")}')">Download Free</button>`
+        : `<button class="buy large" disabled>Coming Soon</button>`)
+    : `<button class="buy large" onclick="buyNow('${product.paddlePriceId}', '${product.name.replace(/'/g, "\\'")}')">
+        ${product.paddlePriceId ? "Buy Now" : "Coming Soon"}
+      </button>`;
 
   container.innerHTML = `
     <a href="index.html" class="back-link">← All products</a>
@@ -63,9 +73,7 @@ function renderProductDetail() {
         <ul class="product-features">${featuresHtml}</ul>
         <div class="detail-buy">
           ${priceHtml}
-          <button class="buy large" onclick="buyNow('${product.paddlePriceId}', '${product.name.replace(/'/g, "\\'")}')">
-            ${product.paddlePriceId ? "Buy Now" : "Coming Soon"}
-          </button>
+          ${detailButtonHtml}
         </div>
       </div>
     </div>

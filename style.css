@@ -210,6 +210,8 @@ section.block{padding:90px 0;}
   transition:.2s;
 }
 .buy:hover{background:var(--teal);color:#0a1512;border-color:var(--teal);}
+.buy:disabled{opacity:.5;cursor:not-allowed;}
+.buy:disabled:hover{background:var(--panel-2);color:var(--ink);border-color:var(--line);}
 
 /* ===== Why section ===== */
 .feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
