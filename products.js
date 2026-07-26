@@ -87,9 +87,9 @@ const PRODUCTS = [
     oldPrice: null,
     image: null,
     demoVideo: null,
-    description: "Connect matching inputs and outputs across selected nodes in one action.",
-    fullDescription: "Connect matching inputs and outputs across selected nodes in one action - update the exact wording once you share how Pair Connect works.",
-    features: ["Fast node connection", "Reduces manual wiring", "Windows & Mac"],
+    description: "Connect multiple Fusion nodes at once, with the mode detected automatically.",
+    fullDescription: "Connect multiple Fusion nodes at once. Pair Connect auto-detects which of three modes you need: Pair Mode (N to N) for two equal-sized groups matched by position, Fan-out Mode (1 to N) to send one source into the same input on many targets, and Fan-in Mode (N to 1) to wire many sources into multiple inputs on one target. Select your sources, Set Source, select your targets, Set Target, then Connect.",
+    features: ["Pair Mode: 1-to-1 by position", "Fan-out Mode: one source to many targets", "Fan-in Mode: many sources into one target"],
     paddlePriceId: null
   },
   {
@@ -100,9 +100,9 @@ const PRODUCTS = [
     oldPrice: null,
     image: null,
     demoVideo: null,
-    description: "Reposition a tool's pivot point without fighting the transform controls.",
-    fullDescription: "Reposition a tool's pivot point without fighting the transform controls - update the exact wording once you share how Fusion Pivot works.",
-    features: ["Quick pivot repositioning", "Works inside Fusion page", "Windows & Mac"],
+    description: "Set a Transform node's pivot to any of 9 fixed positions in one click.",
+    fullDescription: "Set a Transform node's pivot (anchor point) to any of 9 fixed positions instantly: top-left, top-center, top-right, middle-left, center, middle-right, bottom-left, bottom-center, or bottom-right. The layer's visual position never shifts, Fusion Pivot automatically compensates the Center value regardless of Size or Angle. Useful for rotating or scaling from a corner or edge, setting a pivot without dragging it by hand, and updating multiple selected nodes at once.",
+    features: ["9 fixed pivot positions", "Position stays visually unchanged", "Works on multiple selected nodes at once"],
     paddlePriceId: null
   }
 ];
