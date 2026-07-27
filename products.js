@@ -54,7 +54,7 @@ const PRODUCTS = [
     price: 05,
     oldPrice: null,
     image: images/Batch insert.png,
-    demoVideo: "https://youtube.com/shorts/VCqtjwIN7WY",
+    demoVideo: null,
     downloadUrl: null,
     description: "Insert any Fusion tool into multiple selected nodes at once.",
     fullDescription: "Insert any Fusion tool into multiple selected nodes at once. No more repeating the same drag-and-connect for every single node in your comp.",
